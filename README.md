@@ -38,14 +38,16 @@ CREATE TABLE IF NOT EXISTS `products` (
 ## Directory Hierarchy
 ```
 |—— .htaccess
-|—— .readme
 |—— app
 |    |—— app.php
+|    |—— config.php
 |    |—— core
 |        |—— Database.php
 |        |—— Query.php
+|        |—— Redirect.php
 |        |—— Request.php
 |        |—— Router.php
+|        |—— View.php
 |        |—— _include.php
 |    |—— http
 |        |—— actions
@@ -61,15 +63,13 @@ CREATE TABLE IF NOT EXISTS `products` (
 |                |—— index.php
 |            |—— home
 |                |—— index.php
-|            |—— includes
-|                |—— footer.php
-|                |—— header.php
+|            |—— layouts
+|                |—— default.php
 |            |—— products
 |                |—— create.php
 |                |—— edit.php
 |                |—— index.php
 |                |—— show.php
 |        |—— _include.php
-|—— config.php
 |—— index.php
 ```
