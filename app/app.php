@@ -13,12 +13,4 @@ This line is used to include any necessary http files.
 */
 require_once dirname(__DIR__) . '/app/http/_include.php';
 
-$totalCartCount = 0;
-
-if(isset($_SESSION['cart'])) {
-	foreach($_SESSION['cart'] as $product) {
-		$totalCartCount += $product['quantity'];
-	}
-}
-
 

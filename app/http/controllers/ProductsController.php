@@ -12,7 +12,7 @@ function index()
 {
 	$products = getProducts();
 	$productsCount = count($products);
-	require_once dirname(__DIR__) . '/views/products/index.php';
+	return View('products/index', compact('products', 'productsCount'));
 }
 
 /**
@@ -20,7 +20,7 @@ function index()
  */
 function create()
 {
-	require_once dirname(__DIR__) . '/views/products/create.php';
+	return View('products/create');
 }
 
 /**
@@ -41,11 +41,10 @@ function store($request)
 
 	if(empty($errors)) {
 		if(storeProduct($request)) {
-			header('Location: /products');
-			exit;
+			Redirect("/products");
 		}
 	} else {
-		require_once dirname(__DIR__) . '/views/products/create.php';
+		return View('products/create', ['errors' => $errors]);
 	}
 
 }
@@ -60,11 +59,9 @@ function edit($id)
 {
 	$product = getProduct($id);
 	if(!$product) {
-		header('Location: /products');
-		exit;
+		Redirect("/products");
 	}
-	// var_dump($product);exit;
-	require_once dirname(__DIR__) . '/views/products/edit.php';
+	return View('products/edit', compact('product'));
 }
 
 
@@ -88,11 +85,10 @@ function update($id, $request) {
 
 	if(empty($errors)) {
 		if(updateProduct($id, $request)) {
-			header('Location: /products/' . $id);
-			exit;
+			Redirect("/products");
 		}
 	} else {
-		require_once dirname(__DIR__) . '/views/products/update.php';
+		return View('products/edit', ['errors' => $errors]);
 	}
 }
 
@@ -106,7 +102,7 @@ function update($id, $request) {
 function show($id) 
 {
 	$product = getProduct($id);
-	require_once dirname(__DIR__) . '/views/products/show.php';
+	return View('products/show', compact('product'));
 }
 
 ?>

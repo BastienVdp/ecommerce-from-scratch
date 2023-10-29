@@ -14,7 +14,7 @@
 function index() 
 {
 	$productsInCart = getProductsInCart();
-	require_once dirname(__DIR__) . '/views/cart/index.php';
+	return View('cart/index', compact('productsInCart'));
 }
 
 /**
@@ -36,12 +36,13 @@ function store($request)
 				"quantity" => 1
 			];
 		}
-		header("Location: /products");
+		Redirect("/cart");
 	}
 }
 
 function remove($id)
 {
+
 	if(checkIfProductIsInCart($id)) {
 		$index = array_search($id, array_column($_SESSION['cart'], 'productId'));
 		if($_SESSION['cart'][$index]['quantity'] > 1) {
@@ -49,7 +50,7 @@ function remove($id)
 		} else {
 			unset($_SESSION['cart'][$index]);
 		}
-		header("Location: /cart");
+		Redirect('/cart');
 	}
 }
 

@@ -67,7 +67,6 @@ function route($_url)
 					call_user_func_array($action, $params);
 				}
 			}
-			
         } else {
             echo "Action $action non trouvée";
 			require 'app/http/views/404.php';

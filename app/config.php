@@ -3,7 +3,7 @@
 return [
 	'name' => 'E-commerce site',
 	'alias' => [
-		'view' => 'app/http/views',
+		'views' => 'app/http/views',
 		'core' => 'app/core',
 		'http' => 'app/http',
 		'includes' => 'app/http/views/includes',

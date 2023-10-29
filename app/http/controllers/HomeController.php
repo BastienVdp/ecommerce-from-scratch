@@ -5,6 +5,7 @@
  */
 function index() 
 {
-	require_once dirname(__DIR__) . '/views/home/index.php';
+	return View('home/index');
+	// require_once dirname(__DIR__) . '/views/home/index.php';
 }
 ?>

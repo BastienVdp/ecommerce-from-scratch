@@ -25,7 +25,7 @@ USE `ifapme-ecommerce`;
 
 -- Listage de la structure de la table ifapme-ecommerce. products
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
   `price` float NOT NULL DEFAULT '0',
