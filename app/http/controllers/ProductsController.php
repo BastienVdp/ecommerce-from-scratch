@@ -46,7 +46,6 @@ function store($request)
 	} else {
 		return View('products/create', ['errors' => $errors]);
 	}
-
 }
 
 /**

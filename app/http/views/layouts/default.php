@@ -1,11 +1,3 @@
-<?php 
-	$totalCartCount = 0;
-	if(isset($_SESSION['cart'])) {
-		foreach($_SESSION['cart'] as $product) {
-			$totalCartCount += $product['quantity'];
-		}
-	}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,11 +12,19 @@
 	<header class="relative bg-white">
 		<div class="bg-indigo-600 text-sm text-white">
 			<div class="flex h-10 items-center justify-between mx-auto max-w-7xl px-4">
-				Welcome to our store!
+				Hello, <?= $isConnected ? $user['username'] : 'Visiteur'?>
 				<div class="flex items-center">
-					<a href="#" class="text-white hover:text-gray-200 mr-4">Se connecter</a>
+					<?php 
+						if($isConnected) {					
+					?>
+					<a href="/profile" class="text-white hover:text-gray-200 mr-4">Mon profil</a>
 					<span class="h-4 w-px bg-gray-500" aria-hidden="true"></span>
-					<a href="#" class="ml-4 text-white hover:text-gray-200">S'inscrire</a>
+					<a href="/logout" class="ml-4 text-white hover:text-gray-200">Se déconnecter</a>
+					<?php } else { ?>
+					<a href="/login" class="text-white hover:text-gray-200 mr-4">Se connecter</a>
+					<span class="h-4 w-px bg-gray-500" aria-hidden="true"></span>
+					<a href="/register" class="ml-4 text-white hover:text-gray-200">S'inscrire</a>
+					<?php } ?>	
 				</div>
 			</div>
 		</div>
@@ -87,6 +87,5 @@
 	<div class="mx-auto max-w-7xl px-4 py-6">
 		{{ content }}
 	</div>
-	<?php require $config['alias']['views'] . '/templates/footer.php'; ?>
 </body>
 </html>

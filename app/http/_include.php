@@ -9,5 +9,7 @@ if(isset($_SESSION['cart'])) {
 	}
 }
 
+require 'actions/UserActions.php';
+require 'actions/AuthActions.php';
 require 'actions/CartActions.php';
 require 'actions/ProductsActions.php';

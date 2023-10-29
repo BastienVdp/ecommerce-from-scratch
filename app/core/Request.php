@@ -58,8 +58,12 @@ function validateRequest($request, $rules)
 function renderErrors($errors, $field)
 {
     if (isset($errors[$field])) {
-        foreach ($errors[$field] as $error) {
-            echo '<div class="text-red-500 text-sm">' . $error . '</div>';
-        }
+        if(!is_array($errors[$field])) {
+            echo '<div class="text-red-500 text-sm">' . $errors[$field] . '</div>';
+        } else {
+            foreach ($errors[$field] as $error) {
+                echo '<div class="text-red-500 text-sm">' . $error . '</div>';
+            }
+        }       
     }
 }

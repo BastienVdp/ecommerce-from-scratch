@@ -1,6 +1,6 @@
 <?php 
 
-return [
+return $config = [
 	'name' => 'E-commerce site',
 	'alias' => [
 		'views' => 'app/http/views',

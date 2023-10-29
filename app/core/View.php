@@ -11,10 +11,10 @@ function View($_view, $_params = [], $_layout = 'default')
 function getView($view, $params = [])
 {
 	global $config;
+
 	ob_start();
 	foreach($params as $key => $value) {
 		$$key = $value;
-		// var_dump($$key, $value);
 	}
 
 	require $config['alias']['views'] . '/' . $view . '.php';
@@ -25,6 +25,10 @@ function getLayout($layout)
 {
 	global $config;
 	ob_start();
+
+	require_once dirname(__DIR__) . '/state/CartState.php';
+	require_once dirname(__DIR__) . '/state/UserState.php';
+
 	require $config['alias']['views'] . '/layouts/' . $layout . '.php';
 	return ob_get_clean();
 }
