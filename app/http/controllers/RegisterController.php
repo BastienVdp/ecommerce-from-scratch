@@ -15,8 +15,8 @@ function store($request)
 	]);
 
 	if(empty($errors)) {
-		if(registerUser($request)) {
-			startUserSession($request);
+		if($user = registerUser($request)) {
+			startUserSession($user);
 		} else {
 			return View('auth/register', ['errors' => ['email' => 'L\' adresse email est déjà prise']], 'guest');
 		}

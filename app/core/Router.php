@@ -12,9 +12,48 @@
  * 
  * @return void
  */
+$routes = [
+	'/' => [
+		'controller' => 'HomeController',
+		'action' => 'index'
+	], 
+	'/products' => [
+		'controller' => 'ProductsController',
+		'action' => 'index'
+	],
+	'/admin' => [
+		'/' => [
+			'controller' => 'AdminController',
+			'action' => 'index'
+		],
+		'/products' => [
+			'controller' => 'ProductsController',
+			'action' => 'index'
+		],
+		'/products/create' => [
+			'controller' => 'ProductsController',
+			'action' => 'create'
+		],
+		'/products/store' => [
+			'controller' => 'ProductsController',
+			'action' => 'store'
+		],
+		'/products/(\d+)/edit' => [
+			'controller' => 'ProductsController',
+			'action' => 'edit'
+		],
+		'/products/(\d+)/update' => [
+			'controller' => 'ProductsController',
+			'action' => 'update'
+		],
+	]
+];
+
 function route($_url) 
 {
 	global $config;
+	global $routes;
+
 	$url = $_url;
 	// Divise l'url en segments et les stocke dans un tableau
 	$url = explode('/', $url);
@@ -44,6 +83,7 @@ function route($_url)
         }
 
         if (function_exists($action)) {
+			// Ajouter middleware ici 
 			
 			if(isset($id)) { // Si un ID est présent, transmettez-le comme premier paramètre
 				call_user_func_array($action, [$id, ...$params]);

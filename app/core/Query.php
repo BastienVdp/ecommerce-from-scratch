@@ -18,6 +18,6 @@ function executeQuery($sql) {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo "Erreur de requête : " . $e->getMessage();
-        return []; // Retourner un tableau vide en cas d'erreur
+        return false; // Retourner un tableau vide en cas d'erreur
     }
 }

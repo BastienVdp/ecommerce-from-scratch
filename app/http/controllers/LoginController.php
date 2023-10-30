@@ -13,8 +13,9 @@ function store($request)
 	]);
 
 	if(empty($errors)) {
-		if(connectUser($request)) {
-			startUserSession($request);
+		if($user = connectUser($request)) {
+			startUserSession($user);
+			// Redirect("/");
 		} else {
 			return View('auth/login', ['errors' => ['email' => 'Email ou mot de passe incorrect']], 'guest');
 		}

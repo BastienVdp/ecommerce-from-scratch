@@ -6,7 +6,7 @@ return $config = [
 		'views' => 'app/http/views',
 		'core' => 'app/core',
 		'http' => 'app/http',
-		'includes' => 'app/http/views/includes',
+		'actions' => 'app/http/actions',
 	],
 	'database' => [
 		'host' => 'localhost',

@@ -1,9 +1,9 @@
 <?php 
 
-require 'app/core/Database.php';
-require 'app/core/Query.php';
-require 'app/core/Request.php';
-require 'app/core/View.php';
-require 'app/core/Redirect.php';
-require 'app/core/Router.php';
+require $config['alias']['core'] . '/Database.php';
+require $config['alias']['core'] . '/Query.php';
+require $config['alias']['core'] . '/Request.php';
+require $config['alias']['core'] . '/View.php';
+require $config['alias']['core'] . '/Redirect.php';
+require $config['alias']['core'] . '/Router.php';
 

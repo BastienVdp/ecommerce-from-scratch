@@ -1,3 +1,4 @@
+<?php if(!$isAdmin) Redirect('/products');?>
 <div class="space-y-8 flex flex-col mt-4  w-1/2 mx-auto">
 	<form action="/products/store" method="POST">
 		<div class="border-b border-gray-900/10 pb-12 ">

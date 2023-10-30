@@ -1,1 +1,1 @@
-index homepage
+index homepage <?= $isConnected ? $user['username'] : ''?>
