@@ -9,7 +9,6 @@ ifapme-ecommerce
 
 
 ## Dataset Preparation
-```
 -- --------------------------------------------------------
 -- Hôte:                         127.0.0.1
 -- Version du serveur:           8.0.30 - MySQL Community Server - GPL
@@ -44,8 +43,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL DEFAULT '',
   `password` varchar(255) NOT NULL DEFAULT '',
+  `role` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
 
-```
+
 ## Directory Hierarchy
 ```
 |—— .htaccess
@@ -82,7 +82,14 @@ CREATE TABLE IF NOT EXISTS `users` (
 |            |—— LoginController.php
 |            |—— LogoutController.php
 |            |—— ProductsController.php
+|            |—— ProfileController.php
 |            |—— RegisterController.php
+|        |—— middlewares
+|            |—— DefaultMiddleware.php
+|            |—— GuestMiddleware.php
+|        |—— state
+|            |—— CartState.php
+|            |—— UserState.php
 |        |—— views
 |            |—— 404.php
 |            |—— auth
@@ -95,42 +102,16 @@ CREATE TABLE IF NOT EXISTS `users` (
 |            |—— layouts
 |                |—— default.php
 |                |—— guest.php
+|                |—— profile.php
 |            |—— products
 |                |—— create.php
 |                |—— edit.php
 |                |—— index.php
 |                |—— show.php
+|            |—— profile
+|                |—— index.php
+|                |—— orders.php
 |        |—— _include.php
-|    |—— state
-|        |—— CartState.php
-|        |—— UserState.php
+|    |—— index.php
 |—— index.php
-```
-## Code Details
-### Tested Platform
-- software
-  ```
-  OS: Debian unstable (May 2021), Ubuntu LTS
-  Python: 3.8.5 (anaconda)
-  PyTorch: 1.7.1, 1.8.1
-  ```
-- hardware
-  ```
-  CPU: Intel Xeon 6226R
-  GPU: Nvidia RTX3090 (24GB)
-  ```
-### Hyper parameters
-```
-```
-## References
-- [paper-1]()
-- [paper-2]()
-- [code-1](https://github.com)
-- [code-2](https://github.com)
-  
-## License
-
-## Citing
-If you use xxx,please use the following BibTeX entry.
-```
 ```
